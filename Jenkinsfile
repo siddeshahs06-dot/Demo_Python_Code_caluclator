@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     stages {
         stage('Checkout') {
             steps {
@@ -7,18 +8,17 @@ pipeline {
             }
         }
 
-    stages {
-        stage('Checkout') {
+        stage('Run Python') {
             steps {
-                bat 'python3 --version'
+                bat 'python --version'
+                bat 'pip --version'
             }
         }
 
-        stage('hello') {
+        stage('Run Script') {
             steps {
-                bat 'python3 hello.py'
+                bat 'python calculator.py'
             }
         }
-
     }
 }
